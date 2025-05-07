@@ -2,6 +2,8 @@
 # renovate: datasource=github-releases depName=ublue-os/packages
 %define homebrew_release homebrew-2025-05-04-04-03-02
 
+%define homebrew_arch %{_target_cpu}
+
 Name:           ublue-brew
 Version:        0.1.4
 Release:        2%{?dist}
@@ -12,13 +14,7 @@ URL:            https://github.com/ublue-os/packages
 VCS:            {{{ git_dir_vcs }}}
 Source0:        {{{ git_dir_pack }}}
 
-%ifarch x86_64
-Source1:        https://github.com/ublue-os/packages/releases/download/%{homebrew_release}/homebrew-x86_64.tar.zst
-%endif
-
-%ifarch aarch64
-Source1:        https://github.com/ublue-os/packages/releases/download/%{homebrew_release}/homebrew-aarch64.tar.zst
-%endif
+Source1:        https://github.com/ublue-os/packages/releases/download/%{homebrew_release}/homebrew-%{homebrew_arch}.tar.zst
 
 BuildRequires:  systemd-rpm-macros
 
