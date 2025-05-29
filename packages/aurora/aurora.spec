@@ -80,6 +80,7 @@ install -Dpm0644 -t %{buildroot}%{_datadir}/backgrounds/%{vendor}/xe_sunset/ wal
 ln -sr %{buildroot}%{_datadir}/backgrounds/%{vendor}/xe_sunset/ %{buildroot}%{_datadir}/wallpapers/
 
 install -Dpm0644 -t %{buildroot}%{_datadir}/backgrounds/%{vendor}/ kde-config/aurora.xml
+install -Dpm0644 -t %{buildroot}%{_datadir}/icons/default/ kde-config/index.theme
 
 %check
 
@@ -194,6 +195,7 @@ This sets the Aurora defaults for Logos, Wallpapers and theme.
 
 %files kde-config
 %{_datadir}/backgrounds/aurora/aurora.xml
+%{_datadir}/icons/default/index.theme
 
 
 %changelog
