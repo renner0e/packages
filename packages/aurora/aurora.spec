@@ -81,6 +81,9 @@ ln -sr %{buildroot}%{_datadir}/backgrounds/%{vendor}/xe_sunset/ %{buildroot}%{_d
 
 install -Dpm0644 -t %{buildroot}%{_datadir}/backgrounds/%{vendor}/ kde-config/aurora.xml
 install -Dpm0644 -t %{buildroot}%{_datadir}/icons/default/ kde-config/index.theme
+install -Dpm0644 -t %{buildroot}/%{_kf6_datadir}/plasma/look-and-feel/dev.getaurora.aurora.desktop/ kde-config/dev.getaurora.aurora.desktop/metadata.{desktop,json}
+install -Dpm0644 -t %{buildroot}/%{_kf6_datadir}/plasma/look-and-feel/dev.getaurora.aurora.desktop/contents/ kde-config/dev.getaurora.aurora.desktop/contents/defaults
+install -Dpm0644 -t %{buildroot}/%{_kf6_datadir}/plasma/look-and-feel/dev.getaurora.aurora.desktop/contents/plasmoidsetupscripts/ kde-config/dev.getaurora.aurora.desktop/contents/plasmoidsetupscripts/org.kde.plasma.{folder,kickoff,systemtray}.js
 
 %check
 
@@ -185,7 +188,7 @@ Wallpapers included on Aurora by default
 %package kde-config
 Version:        0.1.0
 Summary:        Aurora KDE Plasma configuration
-License:        Apache-2.0
+License:        Apache-2.0 AND GPL-2.0-or-later
 Requires:       aurora-logos
 # Needed when we want to use kf6_datadir macro
 BuildRequires:  kf6-rpm-macros
@@ -196,6 +199,9 @@ This sets the Aurora defaults for Logos, Wallpapers and theme.
 %files kde-config
 %{_datadir}/backgrounds/aurora/aurora.xml
 %{_datadir}/icons/default/index.theme
+%{_kf6_datadir}/plasma/look-and-feel/dev.getaurora.aurora.desktop/metadata.{desktop,json}
+%{_kf6_datadir}/plasma/look-and-feel/dev.getaurora.aurora.desktop/contents/defaults
+%{_kf6_datadir}/plasma/look-and-feel/dev.getaurora.aurora.desktop/contents/plasmoidsetupscripts/org.kde.plasma.{folder,kickoff,systemtray}.js
 
 
 %changelog
