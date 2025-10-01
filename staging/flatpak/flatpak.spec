@@ -10,14 +10,18 @@
 # Disable parental control for RHEL builds
 %bcond malcontent %[!0%{?rhel}]
 
+%global commit  446afd82b05441d15216bf09aff9c68ecfe2ec27
+%global shortcommit %(c=%{commit}; echo ${c:0:7})
+%global snapshotdate 20250925
+
 Name:           flatpak
-Version:        1.16.1
-Release:        2%{?dist}
+Version:        1.16.1~git20250925
+Release:        1%{?dist}
 Summary:        Application deployment framework for desktop apps
 
 License:        LGPL-2.1-or-later
 URL:            https://flatpak.org/
-Source0:        https://github.com/flatpak/flatpak/releases/download/%{version}/%{name}-%{version}.tar.xz
+Source0:        https://github.com/flatpak/flatpak/archive/%{commit}.tar.gz#/flatpak-%{version}.tar.gz
 
 
 # ostree not on i686 for RHEL 10
@@ -143,8 +147,7 @@ This package contains installed tests for %{name}.
 
 
 %prep
-%autosetup -p1
-
+%autosetup -n flatpak-%{commit} -p1
 
 %build
 %meson \
